@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
   interval;
 
   private layout = {
+    width: 1400, 
+    height: 700,
     bargap: 0,
     autosize: true,
     paper_bgcolor: 'rgba(0,0,0,0)',
