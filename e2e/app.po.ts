@@ -1,4 +1,6 @@
-export class Ng2WebglchartsPage {
+import { browser, element, by } from 'protractor';
+
+export class WebglPage {
   navigateTo() {
     return browser.get('/');
   }

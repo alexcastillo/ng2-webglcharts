@@ -4,10 +4,8 @@ import { OnInit, OnChanges } from '@angular/core';
 declare var Plotly;
 
 @Component({
-  moduleId: module.id,
   selector: 'chart-3d',
-  templateUrl: '3d-chart.component.html',
-  styleUrls: ['3d-chart.component.css']
+  templateUrl: '3d-chart.component.html'
 })
 export class Chart3DComponent implements OnInit {
 

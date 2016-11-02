@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Chart3DComponent } from './3d-chart';
-
 declare var Plotly;
 
 @Component({
-  moduleId: module.id,
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
-  directives: [Chart3DComponent]
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
 
@@ -45,7 +40,9 @@ export class AppComponent implements OnInit {
   };
 
   ngOnInit() {
-    Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/3d-scatter.csv', (err, rows) => {
+    const datasetURL = 'https://raw.githubusercontent.com/plotly/datasets/master/3d-scatter.csv';
+
+    Plotly.d3.csv(datasetURL, (err, rows) => {
 
       var trace1 = {
         x: this.unpack(rows, 'x1'), y: this.unpack(rows, 'y1'), z: this.unpack(rows, 'z1'),
@@ -78,7 +75,7 @@ export class AppComponent implements OnInit {
       };
 
       this.data = [trace1, trace2];
-      //this.updateData(200);
+      //this.updateData();
     });
   }
 
@@ -88,13 +85,12 @@ export class AppComponent implements OnInit {
 
   updateData (delay = 500) {
     const update = () => {
-      this.data.map((trace) => {
+      this.data = this.data.map((trace) => {
         trace.x.sort(() => .5 - Math.random());
         trace.y.sort(() => .5 - Math.random());
         trace.z.sort(() => .5 - Math.random());
         return trace;
       });
-      this.data = [...this.data];
     };
 
     this.interval = setInterval(update, delay);

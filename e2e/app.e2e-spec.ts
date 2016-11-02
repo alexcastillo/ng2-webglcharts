@@ -1,10 +1,10 @@
-import { Ng2WebglchartsPage } from './app.po';
+import { WebglPage } from './app.po';
 
-describe('ng2-webglcharts App', function() {
-  let page: Ng2WebglchartsPage;
+describe('webgl App', function() {
+  let page: WebglPage;
 
   beforeEach(() => {
-    page = new Ng2WebglchartsPage();
+    page = new WebglPage();
   });
 
   it('should display message saying app works', () => {
